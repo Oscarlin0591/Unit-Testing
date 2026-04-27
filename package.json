@@ -1,0 +1,27 @@
+{
+  "name": "unit-testing",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Oscarlin0591/Unit-Testing#readme",
+  "bugs": {
+    "url": "https://github.com/Oscarlin0591/Unit-Testing/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oscarlin0591/Unit-Testing.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "course-offering.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "jest": "^30.3.0"
+  }
+}
