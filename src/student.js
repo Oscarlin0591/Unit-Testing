@@ -1,70 +1,102 @@
-const Person = require('./person.js') // Assuming person.js contains the Person class
+const Person = require("./person.js");
+
+const GRADE_SCALE = {
+  "A+": 4.0,
+  A: 4.0,
+  "A-": 3.67,
+  "B+": 3.33,
+  B: 3.0,
+  "B-": 2.67,
+  "C+": 2.33,
+  C: 2.0,
+  "C-": 1.67,
+  "D+": 1.33,
+  D: 1.0,
+  "D-": 0.67,
+  F: 0,
+};
 
 class Student extends Person {
-  constructor (lastName, firstName, school, dateOfBirth, username) {
-    super(lastName, firstName, school, dateOfBirth, username, 'student')
-    this.courseList = [] // list of offering objects
-    this.transcript = {} // course:grade
+  constructor(lastName, firstName, school, dateOfBirth, username) {
+    super(lastName, firstName, school, dateOfBirth, username, "student");
+    this.courseList = [];
+    this.transcript = {};
   }
-
-  list_courses () {
-    const ordered = Object.keys(this.transcript)
-      .sort((a, b) => {
-        const yearComparison = b.year - a.year
-        if (yearComparison !== 0) return yearComparison
-        return b.quarter - a.quarter
-      })
-    return ordered
-  }
-
-  get credits () {
-    let total = 0
-    for (const x of this.courseList) {
-      total += x.course.credits
+  // Cycle 1 GREEN
+  addGrade(offering, grade) {
+    if (grade in GRADE_SCALE) {
+      this.transcript[offering.toString()] = grade;
     }
-    return total
+  }
+  // Cycle 2 GREEN
+  getGrade(offering) {
+    return this.transcript[offering.toString()];
   }
 
-  get gpa () {
-    let earned = 0
-    let available = 0
+  list_courses() {
+    return Object.keys(this.transcript).sort((a, b) => {
+      const yearComparison = b.year - a.year;
+      if (yearComparison !== 0) return yearComparison;
+      return b.quarter - a.quarter;
+    });
+  }
 
-    const gradeScale = {
-      'A+': 4.0,
-      A: 4.0,
-      'A-': 3.67,
-      'B+': 3.33,
-      B: 3.0,
-      'B-': 2.67,
-      'C+': 2.33,
-      C: 2.0,
-      'C-': 1.67,
-      'D+': 1.33,
-      D: 1.0,
-      'D-': 0.67,
-      F: 0
+  get credits() {
+    let total = 0;
+    for (const offering of this.courseList) {
+      total += offering.course.credits;
     }
+    return total;
+  }
 
-    for (const x of this.courseList) {
-      if (this.username in x.grades) { // check to see if a grade has already been submitted
-        earned += (gradeScale[x.get_grade(this)] * x.course.credits)
-        available += x.course.credits
+  get gpa() {
+    let earned = 0;
+    let available = 0;
+
+    // Cycle 3 GREEN
+    for (const offering of this.courseList) {
+      const grade = this.transcript[offering.toString()];
+      if (grade !== undefined) {
+        earned += GRADE_SCALE[grade] * offering.course.credits;
+        available += offering.course.credits;
       }
     }
 
-    const GPA = available === 0 ? 0 : earned / available
-    return GPA
+    return available === 0 ? 0 : earned / available;
   }
 
-  toString () {
-    return ('\n' + 'Student Name: ' + this.firstName + ' ' + this.lastName + '\n' +
-            'School: ' + this.school.name + '\n' +
-            'DOB: ' + this.dateOfBirth.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + '\n' +
-            'Username: ' + this.userName + '\n' +
-            'Email: ' + this.email + '\n' +
-            'GPA: ' + this.gpa + '\n' +
-            'Credits: ' + this.credits + '\n')
+  toString() {
+    return (
+      "\n" +
+      "Student Name: " +
+      this.firstName +
+      " " +
+      this.lastName +
+      "\n" +
+      "School: " +
+      this.school.name +
+      "\n" +
+      "DOB: " +
+      this.dateOfBirth.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }) +
+      "\n" +
+      "Username: " +
+      this.userName +
+      "\n" +
+      "Email: " +
+      this.email +
+      "\n" +
+      "GPA: " +
+      this.gpa +
+      "\n" +
+      "Credits: " +
+      this.credits +
+      "\n"
+    );
   }
 }
 
-module.exports = Student
+module.exports = Student;
