@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1777315451562" clover="3.2.0">
-  <project timestamp="1777315451562" name="All files">
+<coverage generated="1777694422010" clover="3.2.0">
+  <project timestamp="1777694422010" name="All files">
     <metrics statements="167" coveredstatements="156" conditionals="85" coveredconditionals="71" methods="53" coveredmethods="50" elements="305" coveredelements="277" complexity="0" loc="167" ncloc="167" packages="1" files="6" classes="6"/>
     <file name="course-offering.js" path="C:\Users\25052\OneDrive\Documents\Quinnipiac University Classwork\Quinnipiac Spring 26 Semester\SER330\Unit Testing\src\course-offering.js">
       <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="8" methods="6" coveredmethods="6"/>
@@ -32,11 +32,11 @@
     </file>
     <file name="course.js" path="C:\Users\25052\OneDrive\Documents\Quinnipiac University Classwork\Quinnipiac Spring 26 Semester\SER330\Unit Testing\src\course.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <line num="3" count="52" type="stmt"/>
-      <line num="4" count="52" type="stmt"/>
-      <line num="5" count="52" type="stmt"/>
-      <line num="6" count="52" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
+      <line num="3" count="56" type="stmt"/>
+      <line num="4" count="56" type="stmt"/>
+      <line num="5" count="56" type="stmt"/>
+      <line num="6" count="56" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
       <line num="15" count="5" type="stmt"/>
     </file>
     <file name="institution.js" path="C:\Users\25052\OneDrive\Documents\Quinnipiac University Classwork\Quinnipiac Spring 26 Semester\SER330\Unit Testing\src\institution.js">
@@ -150,13 +150,13 @@
     </file>
     <file name="person.js" path="C:\Users\25052\OneDrive\Documents\Quinnipiac University Classwork\Quinnipiac Spring 26 Semester\SER330\Unit Testing\src\person.js">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <line num="3" count="97" type="stmt"/>
-      <line num="4" count="97" type="stmt"/>
-      <line num="5" count="97" type="stmt"/>
-      <line num="6" count="97" type="stmt"/>
-      <line num="7" count="97" type="stmt"/>
-      <line num="8" count="97" type="stmt"/>
-      <line num="12" count="12" type="stmt"/>
+      <line num="3" count="103" type="stmt"/>
+      <line num="4" count="103" type="stmt"/>
+      <line num="5" count="103" type="stmt"/>
+      <line num="6" count="103" type="stmt"/>
+      <line num="7" count="103" type="stmt"/>
+      <line num="8" count="103" type="stmt"/>
+      <line num="12" count="13" type="stmt"/>
       <line num="16" count="4" type="stmt"/>
       <line num="24" count="5" type="stmt"/>
     </file>
